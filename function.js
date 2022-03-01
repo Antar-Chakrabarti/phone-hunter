@@ -61,10 +61,19 @@ const displayMobileDetails = data => {
             <p class="card-text">No Release date Found</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">Chipset: ${data.data.mainFeatures.chipSet}</li>
+            <li class="list-group-item">display size: ${data.data.mainFeatures.displaySize}</li>
+            <li class="list-group-item">memory: ${data.data.mainFeatures.memory}</li>
         </ul>
+        <p class="p-2">
+        sensors: 
+        ${data.data.mainFeatures.sensors[0]},
+        ${data.data.mainFeatures.sensors[1]},
+        ${data.data.mainFeatures.sensors[2]},
+        ${data.data.mainFeatures.sensors[3]},
+        ${data.data.mainFeatures.sensors[4]},
+        ${data.data.mainFeatures.sensors[5]}
+        </p>
     </div>
         `
     } else {
@@ -76,14 +85,25 @@ const displayMobileDetails = data => {
             <p class="card-text">${data.data.releaseDate}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">Chipset: ${data.data.mainFeatures.chipSet}</li>
+            <li class="list-group-item">display Size: ${data.data.mainFeatures.displaySize}</li>
+            <li class="list-group-item">Memory: ${data.data.mainFeatures.memory}</li>
         </ul>
+        <p class="p-2">
+        sensors: 
+        ${data.data.mainFeatures.sensors[0]},
+        ${data.data.mainFeatures.sensors[1]},
+        ${data.data.mainFeatures.sensors[2]},
+        ${data.data.mainFeatures.sensors[3]},
+        ${data.data.mainFeatures.sensors[4]},
+        ${data.data.mainFeatures.sensors[5]}
+        </p>
     </div>
         `
     }
 
     //console.log(data.data.mainFeatures)
-    console.log(data.data.releaseDate)
+    console.log(data);
+
+    console.log(data.data.mainFeatures.chipSet)
 }
