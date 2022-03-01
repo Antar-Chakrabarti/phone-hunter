@@ -46,6 +46,44 @@ const showDetails = (ProductId) => {
     const url = `https://openapi.programming-hero.com/api/phone/${ProductId}`
     fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => displayMobileDetails(data))
         //console.log(ProductId);
+}
+
+const displayMobileDetails = data => {
+    const parant = document.getElementById('details-section');
+    if (data.data.releaseDate == '') {
+        parant.innerHTML = `
+        <div class="card" style="width: 18rem;">
+        <img src="${data.data.image}" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">releaseDate: </h5>
+            <p class="card-text">No Release date Found</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+        </ul>
+    </div>
+        `
+    } else {
+        parant.innerHTML = `
+        <div class="card" style="width: 18rem;">
+        <img src="${data.data.image}" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">releaseDate: </h5>
+            <p class="card-text">${data.data.releaseDate}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+        </ul>
+    </div>
+        `
+    }
+
+    //console.log(data.data.mainFeatures)
+    console.log(data.data.releaseDate)
 }
